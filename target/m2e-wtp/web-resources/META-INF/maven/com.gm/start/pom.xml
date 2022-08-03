@@ -15,12 +15,12 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	<dependencies>
+		<!-- Spring -->
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc10</artifactId>
 			<version>19.14.0.0</version>
 		</dependency>
-		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>

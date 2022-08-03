@@ -1,9 +1,14 @@
 package com.gm.start.test;
 
+import java.util.ArrayList;
+
+import com.gm.start.bankMembers.BankMembersDAO;
+import com.gm.start.bankMembers.BankMembersDTO;
+
 public class DBconnectionTest {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		BankMembersDAO bankMembersDAO = new BankMembersDAO();
 
 	}
 
