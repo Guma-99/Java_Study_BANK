@@ -17,7 +17,7 @@ public class BankMembersDAO implements MembersDAO {
 		// 2. SQL문 생성
 		String sql = "INSERT INTO BANKMEMBERS VALUES(?,?,?,?,?)";
 
-		// 3. 미리 보내리
+		// 3. 미리 보내기
 		PreparedStatement st = con.prepareStatement(sql);
 
 		// 4. ? 세팅
@@ -44,7 +44,7 @@ public class BankMembersDAO implements MembersDAO {
 		// 2. SQL문 생성
 		String sql = "SELECT * FROM BANKMEMBERS WHERE USERNAME LIKE ? order by username ASC";
 		
-		// 3. 미리 보내리
+		// 3. 미리 보내기
 		PreparedStatement st = con.prepareStatement(sql);
 
 		// 4. ? 세팅
