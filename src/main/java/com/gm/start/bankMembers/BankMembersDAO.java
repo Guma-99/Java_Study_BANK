@@ -35,24 +35,36 @@ public class BankMembersDAO implements MembersDAO {
 	}
 
 	@Override
-	public ArrayList<BankMembersDTO> getSearchById(String search) throws Exception {
+	public ArrayList<BankMembersDTO> getSearchByID(String search) throws Exception {
+		ArrayList<BankMembersDTO> ar = new ArrayList<BankMembersDTO>();
+		
 		// 1. DB 연결
 		Connection con = DBConnector.getConnection();
 
 		// 2. SQL문 생성
-		String sql = "SELECT * FROM BANKMEMBERS WHERE USERNAME LIKE '%?%' order by username ASC";
+		String sql = "SELECT * FROM BANKMEMBERS WHERE USERNAME LIKE ? order by username ASC";
 		
 		// 3. 미리 보내리
 		PreparedStatement st = con.prepareStatement(sql);
 
 		// 4. ? 세팅
-		st.setString(1, search);
+		st.setString(1, "%"+search+"%");
 
 		// 5. 최종 전송 후 결과 처리
 		ResultSet rs = st.executeQuery();
+		
+		while(rs.next()) {
+			BankMembersDTO bankMembersDTO = new BankMembersDTO();
+			bankMembersDTO.setUsername(rs.getString("USERNAME"));
+			bankMembersDTO.setPassword(rs.getString("PASSWORD"));
+			bankMembersDTO.setName(rs.getString("NAME"));
+			bankMembersDTO.setEmail(rs.getString("EMAIL"));
+			bankMembersDTO.setPhone(rs.getString("PHONE"));
+			ar.add(bankMembersDTO);
+		}
 
 		// 6. 연결 해제
-		return rs;
+		return ar;
 	}
 
 }

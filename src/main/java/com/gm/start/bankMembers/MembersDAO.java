@@ -8,6 +8,6 @@ public interface MembersDAO {
 	public int setJoin(BankMembersDTO bankMembersDTO) throws Exception;
 	
 	// 검색어를 입력해서 abc순으로 ID 찾기
-	public ArrayList<BankMembersDTO> getSearchById(String search) throws Exception;
+	public ArrayList<BankMembersDTO> getSearchByID(String search) throws Exception;
 
 }
