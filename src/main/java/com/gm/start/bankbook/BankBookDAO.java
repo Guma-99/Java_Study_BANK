@@ -12,8 +12,19 @@ public class BankBookDAO implements BookDAO {
 	@Override
 	public int setBankBook(BankBookDTO bankBookDTO) throws Exception {
 		Connection con = DBConnector.getConnection();
-		String sql = "INSERT * FROM BANKBOOK WHERE";
-		return 0;
+		String sql = "INSERT INTO BANKBOOK(BOOKNUM, BOOKNAME, BOOKRATE, BOOKSALE) VALUES (?, ?, ?, ?)";
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setInt(1, bankBookDTO.getBooknum());
+		st.setString(2, bankBookDTO.getBookname());
+		st.setDouble(3, bankBookDTO.getBookrate());
+		st.setInt(4, bankBookDTO.getBooksale());
+		
+		int rs = st.executeUpdate();
+		
+		DBConnector.disConnect(st, con);
+		
+		return rs;
 	}
 
 	@Override
