@@ -14,9 +14,6 @@
 	%>
 
 	<h1>BankBook List</h1>
-	<%
-	if (ar != null) {
-	%>
 	<table border="1">
 		<thead>
 			<tr>
@@ -38,13 +35,8 @@
 			%>
 		</tbody>
 	</table>
-	<%
-	} else {
-	%>
-	<h3>데이터가 올바르지 않습니다.</h3>
-	<%
-	}
-	%>
+	<br>
+	<a href="./add">상품등록</a>
 	<!-- /bankbook/list -->
 
 	<!-- /bankbook/detail  jsp: detail.jsp -->

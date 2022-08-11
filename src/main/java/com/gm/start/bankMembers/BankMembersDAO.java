@@ -55,11 +55,11 @@ public class BankMembersDAO implements MembersDAO {
 		
 		while(rs.next()) {
 			BankMembersDTO bankMembersDTO = new BankMembersDTO();
-			bankMembersDTO.setUsername(rs.getString("USERNAME"));
-			bankMembersDTO.setPassword(rs.getString("PASSWORD"));
-			bankMembersDTO.setName(rs.getString("NAME"));
-			bankMembersDTO.setEmail(rs.getString("EMAIL"));
-			bankMembersDTO.setPhone(rs.getString("PHONE"));
+			bankMembersDTO.setUsername(rs.getString("username"));
+			bankMembersDTO.setPassword(rs.getString("password"));
+			bankMembersDTO.setName(rs.getString("name"));
+			bankMembersDTO.setEmail(rs.getString("email"));
+			bankMembersDTO.setPhone(rs.getString("phone"));
 			ar.add(bankMembersDTO);
 		}
 

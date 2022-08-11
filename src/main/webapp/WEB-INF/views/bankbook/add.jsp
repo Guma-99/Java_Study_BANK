@@ -34,9 +34,8 @@ BankBookDAO bankBookDAO = new BankBookDAO();
 	<hr>
 	<br>
 	<form action="add" method="post">
-
 		<h4>일련번호</h4>
-		<input type="text" name="banknum">
+		<input type="text" name="booknum">
 		<h4>통장이름</h4>
 		<input type="text" name="bookname">
 		<h4>이자율</h4>

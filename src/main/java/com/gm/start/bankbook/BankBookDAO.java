@@ -12,7 +12,7 @@ public class BankBookDAO implements BookDAO {
 	@Override
 	public int setBankBook(BankBookDTO bankBookDTO) throws Exception {
 		Connection con = DBConnector.getConnection();
-		String sql = "INSERT INTO BANKBOOK(BOOKNUM, BOOKNAME, BOOKRATE, BOOKSALE) VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO BANKBOOK(BOOKNUM, BOOKNAME, BOOKRATE, BOOKSALE) VALUES(?, ?, ?, ?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		st.setInt(1, bankBookDTO.getBooknum());
@@ -42,10 +42,10 @@ public class BankBookDAO implements BookDAO {
 
 		while (rs.next()) {
 			BankBookDTO bankBookDTO = new BankBookDTO();
-			bankBookDTO.setBooknum(rs.getInt("BOOKNUM"));
-			bankBookDTO.setBookname(rs.getString("BOOKNAME"));
-			bankBookDTO.setBookrate(rs.getDouble("BOOKRATE"));
-			bankBookDTO.setBooksale(rs.getInt("BOOKSALE"));
+			bankBookDTO.setBooknum(rs.getInt("booknum"));
+			bankBookDTO.setBookname(rs.getString("bookname"));
+			bankBookDTO.setBookrate(rs.getDouble("bookrate"));
+			bankBookDTO.setBooksale(rs.getInt("booksale"));
 			ar.add(bankBookDTO);
 		}
 
