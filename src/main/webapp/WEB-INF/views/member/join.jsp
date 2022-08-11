@@ -10,6 +10,7 @@
 </head>
 <body>
 	<h2>Join Page</h2>
+	<hr>
 	<form action="./join" method="post">
 	
 		<h4>아이디</h4>
@@ -25,8 +26,7 @@
 		 <br> <br>
 		<input type="submit" value="가입하기"> <br>
 
-
-
 	</form>
+	<a href="../">home</a>
 </body>
 </html>

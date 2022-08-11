@@ -14,16 +14,16 @@ public class BankBookDAO implements BookDAO {
 		Connection con = DBConnector.getConnection();
 		String sql = "INSERT INTO BANKBOOK(BOOKNUM, BOOKNAME, BOOKRATE, BOOKSALE) VALUES(?, ?, ?, ?)";
 		PreparedStatement st = con.prepareStatement(sql);
-		
+
 		st.setInt(1, bankBookDTO.getBooknum());
 		st.setString(2, bankBookDTO.getBookname());
 		st.setDouble(3, bankBookDTO.getBookrate());
 		st.setInt(4, bankBookDTO.getBooksale());
-		
+
 		int rs = st.executeUpdate();
-		
+
 		DBConnector.disConnect(st, con);
-		
+
 		return rs;
 	}
 
@@ -59,7 +59,7 @@ public class BankBookDAO implements BookDAO {
 		Connection con = DBConnector.getConnection();
 
 		// 2. SQL문 생성
-		String sql = "UPDATE BANKBOOK SET BOOKSALE = 0 WHERE BOOKNUM = ?";
+		String sql = "UPDATE BANKBOOK SET BOOKSALE = 1 WHERE BOOKNUM = ?";
 
 		// 3. 미리 보내기
 		PreparedStatement st = con.prepareStatement(sql);
@@ -88,22 +88,68 @@ public class BankBookDAO implements BookDAO {
 
 		// 4. ? 세팅
 		st.setInt(1, bankBookDTO.getBooknum());
-		
-		// 5. 최종 전송 후 결과 처리
-		//int result = st.executeUpdate();
-		ResultSet rs = st.executeQuery();
-		
-		// 6. 연결 해제
-		//return result;
-		if(rs.next()) {
-			bankBookDTO2 = new BankBookDTO();
-			bankBookDTO2.setBooknum(rs.getInt("BOOKNUM"));
-			bankBookDTO2.setBookname(rs.getString("BOOKNAME"));
-			bankBookDTO2.setBookrate(rs.getDouble("BOOKRATE"));
-			bankBookDTO2.setBooksale(rs.getInt("BOOKSALE"));
-		} 
-			return bankBookDTO2;
 
+		// 5. 최종 전송 후 결과 처리
+		// int result = st.executeUpdate();
+		ResultSet rs = st.executeQuery();
+
+		// 6. 연결 해제
+		// return result;
+		if (rs.next()) {
+			bankBookDTO2 = new BankBookDTO();
+			bankBookDTO2.setBooknum(rs.getInt("booknum"));
+			bankBookDTO2.setBookname(rs.getString("bookname"));
+			bankBookDTO2.setBookrate(rs.getDouble("bookrate"));
+			bankBookDTO2.setBooksale(rs.getInt("booksale"));
+		}
+		return bankBookDTO2;
+
+	}
+
+	@Override
+	public int setUpdate(BankBookDTO bankBookDTO) throws Exception {
+		// 1. DB 연결
+		Connection con = DBConnector.getConnection();
+
+		// 2. SQL문 생성
+		String sql = "UPDATE BANKBOOK SET BOOKNAME = ?, BOOKRATE = ?  WHERE BOOKNUM = ?";
+
+		// 3. 미리 보내기
+		PreparedStatement st = con.prepareStatement(sql);
+
+		// 4. ? 세팅
+		st.setString(1, bankBookDTO.getBookname());
+		st.setDouble(2, bankBookDTO.getBookrate());
+		st.setInt(3, bankBookDTO.getBooknum());
+
+		// 5. 최종 전송 후 결과 처리
+		int result = st.executeUpdate();
+		DBConnector.disConnect(st, con);
+
+		// 6. 연결 해제
+		return result;
+	}
+
+	@Override
+	public int setDelete(BankBookDTO bankBookDTO) throws Exception {
+		// 1. DB 연결
+		Connection con = DBConnector.getConnection();
+
+		// 2. SQL문 생성
+		String sql = "DELETE BANKBOOK WHERE BOOKNUM = ?";
+
+		// 3. 미리 보내기
+		PreparedStatement st = con.prepareStatement(sql);
+
+		// 4. ? 세팅
+		st.setInt(1, bankBookDTO.getBooknum());
+
+		// 5. 최종 전송 후 결과 처리
+		int result = st.executeUpdate();
+		DBConnector.disConnect(st, con);
+
+		// 6. 연결 해제
+		return result;
 	}
 
 }

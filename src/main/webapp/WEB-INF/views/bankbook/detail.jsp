@@ -1,9 +1,12 @@
 <%@page import="com.gm.start.bankbook.BankBookDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%--
 <%
 BankBookDTO bankBookDTO = (BankBookDTO)request.getAttribute("dto");
 %>
+--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +15,7 @@ BankBookDTO bankBookDTO = (BankBookDTO)request.getAttribute("dto");
 </head>
 <body>
 	<h1>Detail List</h1>
-	<% if(bankBookDTO != null){ %>
+	<hr>
 	<table border="1">
 		<tr>
 			<th>Num</th>
@@ -21,23 +24,18 @@ BankBookDTO bankBookDTO = (BankBookDTO)request.getAttribute("dto");
 			<th>Sale</th>
 		</tr>
 		<tr>
-			<td><%=bankBookDTO.getBooknum()%></td>
-			<td><%=bankBookDTO.getBookname()%></td>
-			<td><%=bankBookDTO.getBookrate()%></td>
-			<td>
-				<%
-				if (bankBookDTO.getBooksale() == 1) {
-				%> 판매중 <%
-				} else {
-				%> 품절 <%
-				}
-				%>
-			</td>
+			<td>${requestScope.dto.getBooknum()}</td>
+			<td>${requestScope.dto.bookname}</td>
+			<td>${dto.bookrate}</td>
+			<td></td>
 		</tr>
 	</table>
-	<%} else {%>
-		<h3>데이터가 올바르지 않습니다.</h3>
-	<%} %>
+	<br>
+	<a href="./update?booknum=${dto.booknum}">수정</a>
+	<a href="./delete?booknum=${dto.booknum}"
+		onclick="return confirm('정말로 삭제하시겠습니까?');">삭제</a>
+	<hr>
+	<a href="./list">List Page</a>
 
 </body>
 </html>

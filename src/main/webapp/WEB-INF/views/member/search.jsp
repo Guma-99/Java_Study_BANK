@@ -8,9 +8,11 @@
 </head>
 <body>
 	<h2>Member Search Page</h2>
+	<hr>
 	<form action="search" method="post">
 		<input type="text" name="search" placeholder="아이디를 입력하세요."> 
 		<input type="submit" value="검색">
 	</form>
+	<a href="../">home</a>
 </body>
 </html>

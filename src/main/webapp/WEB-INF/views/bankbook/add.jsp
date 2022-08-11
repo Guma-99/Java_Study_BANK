@@ -14,7 +14,8 @@ BankBookDAO bankBookDAO = new BankBookDAO();
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>상품등록 페이지</h2>
+	<h2>Add Page</h2>
+	<hr>
 	<h4>현재 등록되어 있는 상품</h4>
 	<table border="1">
 		<tr>
@@ -41,9 +42,10 @@ BankBookDAO bankBookDAO = new BankBookDAO();
 		<h4>이자율</h4>
 		<input type="text" name="bookrate">
 		<h4>판매여부</h4>
-		<input type="text" name="booksale" placeholder="1=판매, 0=품절"> <br>
+		<input type="text" name="booksale" value="1" readonly> <br>
 		
 		<br> <input type="submit" value="상품등록"> <br>
 	</form>
+	<a href="../">home</a>
 </body>
 </html>

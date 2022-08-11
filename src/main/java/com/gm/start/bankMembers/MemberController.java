@@ -1,15 +1,12 @@
 package com.gm.start.bankMembers;
 
-import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.gm.start.bankbook.BankBookDTO;
 
 //Controller 역할, container에게 이 클래스의객체를 생성
 @Controller
@@ -28,11 +25,15 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String login(BankMembersDTO bankMembersDTO) {
+	public String login(BankMembersDTO bankMembersDTO, Model model) throws Exception{
 		System.out.println("DBd에 로그인 실행");
+		BankMembersDAO bankMembersDAO = new BankMembersDAO();
+		bankMembersDTO = bankMembersDAO.getLogin(bankMembersDTO);
+		System.out.println(bankMembersDTO);
+		model.addAttribute("member", bankMembersDTO);
 		
 		// "Redirect: 다시접속할URL주소(절대경로, 상대경로)"
-		return "redirect:../";
+		return "home";
 		
 		//return "home";
 	}
