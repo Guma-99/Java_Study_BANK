@@ -13,10 +13,10 @@
 <body>
 	<h2>Login Page</h2>
 	<hr>
-	<form action="./login" method="post">
+	<form action="./login.gm" method="post">
 		<div class="container">
-			<input type="text" name="username" placeholder="아이디"> <br>
-			<input type="password" name="password" placeholder="비밀번호">
+			<input type="text" value="admin" name="userName" placeholder="아이디"> <br>
+			<input type="password" value="admin" name="passWord" placeholder="비밀번호">
 			<P>
 				<input type="checkbox">아이디 저장
 			</P>

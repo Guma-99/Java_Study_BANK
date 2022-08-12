@@ -2,6 +2,9 @@ package com.gm.start.bankMembers;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,29 +20,40 @@ public class MemberController {
 	// @ : 설명 + 실행
 	
 	// Login /member/login
-	@RequestMapping(value = "login", method = RequestMethod.GET)
+	@RequestMapping(value = "login.gm", method = RequestMethod.GET)
 	public String login() {
 		System.out.println("로그인 실행");
 		
 		return "member/login";
 	}
 	
-	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String login(BankMembersDTO bankMembersDTO, Model model) throws Exception{
+	@RequestMapping(value = "login.gm", method = RequestMethod.POST)
+	public String login(HttpServletRequest request, BankMembersDTO bankMembersDTO, Model model) throws Exception{
 		System.out.println("DBd에 로그인 실행");
 		BankMembersDAO bankMembersDAO = new BankMembersDAO();
 		bankMembersDTO = bankMembersDAO.getLogin(bankMembersDTO);
 		System.out.println(bankMembersDTO);
-		model.addAttribute("member", bankMembersDTO);
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("member", bankMembersDTO);
+		//model.addAttribute("member", bankMembersDTO);
 		
 		// "Redirect: 다시접속할URL주소(절대경로, 상대경로)"
-		return "home";
+		return "redirect:../";
 		
 		//return "home";
 	}
 	
+	@RequestMapping(value = "logout.gm", method = RequestMethod.GET)
+	public String logout(HttpSession session) throws Exception {
+		session.invalidate();
+		
+		return "redirect:../";
+	}
+	
+	
 	// Join /member/join Get
-	@RequestMapping(value = "join", method = RequestMethod.GET)
+	@RequestMapping(value = "join.gm", method = RequestMethod.GET)
 	public String join() {
 		System.out.println("조인 Get 실행");
 		
@@ -47,7 +61,7 @@ public class MemberController {
 	}
 	
 	// Post
-	@RequestMapping(value = "join", method = RequestMethod.POST)
+	@RequestMapping(value = "join.gm", method = RequestMethod.POST)
 	public String join(BankMembersDTO bankMembersDTO) throws Exception {
 		System.out.println("조인 Post 실행");
 		BankMembersDAO bankMembersDAO = new BankMembersDAO();
@@ -74,10 +88,10 @@ public class MemberController {
 //		bankMembersDTO.setPhone(request.getParameter("phone"));
 		
 		
-		return "redirect:../member/login";
+		return "redirect:../member/login.gm";
 	}
 	
-	@RequestMapping(value = "search", method = RequestMethod.GET)
+	@RequestMapping(value = "search.gm", method = RequestMethod.GET)
 	public String getSearchByID() { 
 		System.out.println("써치 Get 실행");
 		
@@ -85,7 +99,7 @@ public class MemberController {
 	}
 	
 	
-	@RequestMapping(value = "search", method = RequestMethod.POST)
+	@RequestMapping(value = "search.gm", method = RequestMethod.POST)
 	public ModelAndView getSearchByID(String search) throws Exception {
 		System.out.println("써치 Post 실행");
 		BankMembersDAO bankMembersDAO = new BankMembersDAO();
@@ -98,7 +112,7 @@ public class MemberController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "list", method = RequestMethod.GET)
+	@RequestMapping(value = "list.gm", method = RequestMethod.GET)
 	public String list() { 
 		System.out.println("리스트 Get 실행");
 		

@@ -1,7 +1,7 @@
 package com.gm.start.test;
 
-import com.gm.start.bankbook.BankBookDAO;
-import com.gm.start.bankbook.BankBookDTO;
+import com.gm.start.bankBook.BankBookDAO;
+import com.gm.start.bankBook.BankBookDTO;
 
 public class BankBookTestMain {
 
@@ -17,14 +17,14 @@ public class BankBookTestMain {
 //			// TODO: handle exception
 //		}
 		try {
-			bankBookDTO.setBookname("hii");
-			bankBookDTO.setBookrate(2.5);
+			bankBookDTO.setBookName("hii");
+			bankBookDTO.setBookRate(2.5);
 			bankBookDAO.setUpdate(bankBookDTO);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block-
 			e.printStackTrace();
 		}
-		System.out.println(bankBookDTO.getBookname() + " " + bankBookDTO.getBookrate());
+		System.out.println(bankBookDTO.getBookName() + " " + bankBookDTO.getBookRate());
 
 	}
 

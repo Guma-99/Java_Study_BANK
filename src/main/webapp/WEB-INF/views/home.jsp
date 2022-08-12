@@ -10,19 +10,20 @@
 
 	<P>The time on the server is ${serverTime}.</P>
 	<%-- 다 같은 뜻 == / eq / empty --%>
-	<c:if test="${empty member}">
-	<a href="./member/login">Login</a>
-	<a href="./member/join">Join</a>
+	<c:if test="${empty sessionScope.member}">
+	<a href="./member/login.gm">Login</a>
+	<a href="./member/join.gm">Join</a>
 	</c:if>
-	<c:if test="${not empty member}">
-	<a href="#">logout</a>
+	<c:if test="${not empty sessionScope.member}">
+	<h3>${sessionScope.member.name}님 환영합니다.</h3>
+	<a href="./member/logout.gm">logout</a>
 	<a href="#">Mypage</a>
 	</c:if>
-	<a href="./bankbook/list">List</a>
-	<a href="./bankbook/detail">Detail</a>
-	<a href="./bankbook/add">add</a>
-	<a href="./member/search">search</a>
-	<a href="./bankbook/update">update</a>
+	<a href="./bankbook/list.gm">List</a>
+	<a href="./bankbook/detail.gm">Detail</a>
+	<a href="./bankbook/add.gm">add</a>
+	<a href="./member/search.gm">search</a>
+	<a href="./bankbook/update.gm">update</a>
 	
 
 	<br>

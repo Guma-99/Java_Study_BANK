@@ -1,36 +1,41 @@
-package com.gm.start.bankbook;
+package com.gm.start.bankBook;
 
 public class BankBookDTO {
-	private int booknum;
-	private String bookname;
-	private double bookrate;
-	private int booksale;
-	
-	
-	public int getBooknum() {
-		return booknum;
+	private int bookNum;
+	private String bookName;
+	private double bookRate;
+	private int bookSale;
+
+	public int getBookNum() {
+		return bookNum;
 	}
-	public void setBooknum(int booknum) {
-		this.booknum = booknum;
+
+	public void setBookNum(int bookNum) {
+		this.bookNum = bookNum;
 	}
-	public String getBookname() {
-		return bookname;
+
+	public String getBookName() {
+		return bookName;
 	}
-	public void setBookname(String bookname) {
-		this.bookname = bookname;
+
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
 	}
-	public double getBookrate() {
-		return bookrate;
+
+	public double getBookRate() {
+		return bookRate;
 	}
-	public void setBookrate(double bookrate) {
-		this.bookrate = bookrate;
+
+	public void setBookRate(double bookRate) {
+		this.bookRate = bookRate;
 	}
-	public int getBooksale() {
-		return booksale;
+
+	public int getBookSale() {
+		return bookSale;
 	}
-	public void setBooksale(int booksale) {
-		this.booksale = booksale;
+
+	public void setBookSale(int bookSale) {
+		this.bookSale = bookSale;
 	}
-	
-	
+
 }

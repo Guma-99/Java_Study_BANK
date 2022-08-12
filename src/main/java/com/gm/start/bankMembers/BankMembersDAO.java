@@ -21,8 +21,8 @@ public class BankMembersDAO implements MembersDAO {
 		PreparedStatement st = con.prepareStatement(sql);
 
 		// 4. ? 세팅
-		st.setString(1, bankMembersDTO.getUsername());
-		st.setString(2, bankMembersDTO.getPassword());
+		st.setString(1, bankMembersDTO.getUserName());
+		st.setString(2, bankMembersDTO.getPassWord());
 		st.setString(3, bankMembersDTO.getName());
 		st.setString(4, bankMembersDTO.getEmail());
 		st.setString(5, bankMembersDTO.getPhone());
@@ -55,8 +55,8 @@ public class BankMembersDAO implements MembersDAO {
 		
 		while(rs.next()) {
 			BankMembersDTO bankMembersDTO = new BankMembersDTO();
-			bankMembersDTO.setUsername(rs.getString("username"));
-			bankMembersDTO.setPassword(rs.getString("password"));
+			bankMembersDTO.setUserName(rs.getString("userName"));
+			bankMembersDTO.setPassWord(rs.getString("passWord"));
 			bankMembersDTO.setName(rs.getString("name"));
 			bankMembersDTO.setEmail(rs.getString("email"));
 			bankMembersDTO.setPhone(rs.getString("phone"));
@@ -75,14 +75,14 @@ public class BankMembersDAO implements MembersDAO {
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
-		st.setString(1, bankMembersDTO.getUsername());
-		st.setString(2, bankMembersDTO.getPassword());
+		st.setString(1, bankMembersDTO.getUserName());
+		st.setString(2, bankMembersDTO.getPassWord());
 		
 		ResultSet rs = st.executeQuery();
 		
 		if(rs.next()) {
 			bankMembersDTO = new BankMembersDTO();
-			bankMembersDTO.setUsername(rs.getString("username"));
+			bankMembersDTO.setUserName(rs.getString("userName"));
 			bankMembersDTO.setName(rs.getString("name"));
 		} else {
 			bankMembersDTO = null;

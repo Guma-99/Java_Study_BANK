@@ -20,8 +20,8 @@
 		<tbody>
 			<c:forEach items="${requestScope.list}" var="dto">
 				<tr>
-					<td><a href="./detail?booknum=${pageScope.dto.booknum}">${pageScope.dto.bookname}</a></td>
-					<td>${pageScope.dto.bookrate}</td>
+					<td><a href="./detail.gm?bookNum=${pageScope.dto.bookNum}">${pageScope.dto.bookName}</a></td>
+					<td>${pageScope.dto.bookRate}</td>
 				</tr>
 			</c:forEach>
 			<%-- <%
@@ -38,7 +38,9 @@
 		</tbody>
 	</table>
 	<br>
-	<a href="./add">상품등록</a>
+	<a href="./add.gm">상품등록</a>
+	<br>
+	<br>
 	<a href="../">home</a>
 	<!-- /bankbook/list -->
 

@@ -1,5 +1,5 @@
-<%@page import="com.gm.start.bankbook.BankBookDAO"%>
-<%@page import="com.gm.start.bankbook.BankBookDTO"%>
+<%@page import="com.gm.start.bankBook.BankBookDAO"%>
+<%@page import="com.gm.start.bankBook.BankBookDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -25,24 +25,24 @@ BankBookDAO bankBookDAO = new BankBookDAO();
 			<th>판매여부</th>
 		</tr>
 		<tr>
-			<td><%=bankBookDTO.getBooknum()%></td>
-			<td><%=bankBookDTO.getBookname()%></td>
-			<td><%=bankBookDTO.getBookrate()%></td>
-			<td><%=bankBookDTO.getBooksale()%></td>
+			<td><%=bankBookDTO.getBookNum()%></td>
+			<td><%=bankBookDTO.getBookName()%></td>
+			<td><%=bankBookDTO.getBookRate()%></td>
+			<td><%=bankBookDTO.getBookSale()%></td>
 		</tr>
 	</table>
 	<br>
 	<hr>
 	<br>
-	<form action="add" method="post">
+	<form action="add.gm" method="post">
 		<h4>일련번호</h4>
-		<input type="text" name="booknum">
+		<input type="text" name="bookNum">
 		<h4>통장이름</h4>
-		<input type="text" name="bookname">
+		<input type="text" name="bookName">
 		<h4>이자율</h4>
-		<input type="text" name="bookrate">
+		<input type="text" name="bookRate">
 		<h4>판매여부</h4>
-		<input type="text" name="booksale" value="1" readonly> <br>
+		<input type="text" name="bookSale" value="1" readonly> <br>
 		
 		<br> <input type="submit" value="상품등록"> <br>
 	</form>

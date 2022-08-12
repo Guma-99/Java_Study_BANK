@@ -1,6 +1,6 @@
-<%@page import="com.gm.start.bankbook.BankBookDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%--
 <%
@@ -24,18 +24,21 @@ BankBookDTO bankBookDTO = (BankBookDTO)request.getAttribute("dto");
 			<th>Sale</th>
 		</tr>
 		<tr>
-			<td>${requestScope.dto.getBooknum()}</td>
-			<td>${requestScope.dto.bookname}</td>
-			<td>${dto.bookrate}</td>
+			<td>${requestScope.dto.getBookNum()}</td>
+			<td>${requestScope.dto.bookName}</td>
+			<td>${dto.bookRate}</td>
 			<td></td>
 		</tr>
 	</table>
 	<br>
-	<a href="./update?booknum=${dto.booknum}">수정</a>
-	<a href="./delete?booknum=${dto.booknum}"
+	<a href="./update.gm?bookNum=${dto.bookNum}">수정</a>
+	<a href="./delete.gm?bookNum=${dto.bookNum}"
 		onclick="return confirm('정말로 삭제하시겠습니까?');">삭제</a>
+	<c:if test="${not empty sessionScope.member}">
+	<a href="../bankaccount/add.gm?bookNum=${dto.bookNum}">가입하기</a>
+	</c:if>
 	<hr>
-	<a href="./list">List Page</a>
+	<a href="./list.gm">List Page</a>
 
 </body>
 </html>

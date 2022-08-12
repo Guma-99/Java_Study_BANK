@@ -11,12 +11,12 @@
 <body>
 	<h2>Join Page</h2>
 	<hr>
-	<form action="./join" method="post">
+	<form action="./join.gm" method="post">
 	
 		<h4>아이디</h4>
-		<input type="text" name="username">
+		<input type="text" name="userName">
 		<h4>비밀번호</h4>
-		<input type="password" name="password">
+		<input type="password" name="passWord">
 		<h4>이름</h4>
 		<input type="text" name="name">
 		<h4>이메일</h4>

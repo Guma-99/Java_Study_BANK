@@ -8,8 +8,8 @@
 </head>
 <body>
 	<h2>Delete</h2>
-	<form action="./delete" method="get">
-		<input type="hidden" name="booknum" value="${dto.booknum}"> 
+	<form action="./delete.gm" method="get">
+		<input type="hidden" name="bookNum" value="${dto.bookNum}"> 
 		
 		<%--<input type="hidden" name="bookname" value="${dto.bookname}">
 		<input type="hidden" name="bookrate" value="${dto.bookrate}">  --%>

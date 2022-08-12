@@ -1,4 +1,4 @@
-package com.gm.start.bankbook;
+package com.gm.start.bankBook;
 
 import java.util.ArrayList;
 
@@ -13,105 +13,102 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class BankBookController {
 
-	@RequestMapping(value = "list", method = RequestMethod.GET)
+	@RequestMapping(value = "list.gm", method = RequestMethod.GET)
 	public String list(Model model) throws Exception {
 		System.out.println("리스트 Get 실행");
 		BankBookDAO bankBookDAO = new BankBookDAO();
 		ArrayList<BankBookDTO> ar = bankBookDAO.getList();
 		model.addAttribute("list", ar);
-		
+
 		return "bankbook/list";
 	}
 
-	@RequestMapping(value = "detail", method = RequestMethod.GET)
-	public ModelAndView detail(BankBookDTO bankBookDTO) throws Exception{
+	@RequestMapping(value = "detail.gm", method = RequestMethod.GET)
+	public ModelAndView detail(BankBookDTO bankBookDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("디테일 Get 실행");
-		System.out.println(bankBookDTO.getBooknum());
+		System.out.println(bankBookDTO.getBookNum());
 
 		BankBookDAO bankBookDAO = new BankBookDAO();
 		bankBookDTO = bankBookDAO.getDetail(bankBookDTO);
 
-		//return "bankbook/detail";
+		// return "bankbook/detail";
 		mv.setViewName("bankbook/detail");
 		mv.addObject("dto", bankBookDTO);
-		
+
 		return mv;
 	}
-	
-	@RequestMapping(value = "add", method = RequestMethod.GET)
-	public String add() { 
+
+	@RequestMapping(value = "add.gm", method = RequestMethod.GET)
+	public String add() {
 		System.out.println("에드 Get 실행");
-		
+
 		return "bankbook/add";
 	}
-	
-	@RequestMapping(value = "add", method = RequestMethod.POST)
+
+	@RequestMapping(value = "add.gm", method = RequestMethod.POST)
 	public ModelAndView add(BankBookDTO bankBookDTO) throws Exception {
 		System.out.println("에드 Post 실행");
 		BankBookDAO bankBookDAO = new BankBookDAO();
-		
+
 		int result = bankBookDAO.setBankBook(bankBookDTO);
 		System.out.println(result == 1);
-		
-		// 상품등록 후 list페이지로 이동 
+
+		// 상품등록 후 list페이지로 이동
 		ModelAndView mv = new ModelAndView();
-		
-		mv.setViewName("redirect:./list");
-		
-		
+
+		mv.setViewName("redirect:./list.gm");
+
 		return mv;
 	}
-	
-	@RequestMapping(value = "update", method = RequestMethod.GET)
-	public void update(BankBookDTO bankBookDTO, Model model) throws Exception{
+
+	@RequestMapping(value = "update.gm", method = RequestMethod.GET)
+	public void update(BankBookDTO bankBookDTO, Model model) throws Exception {
 		System.out.println("업데이트 Get 실행");
-		System.out.println(bankBookDTO.getBooknum());
-		
+		System.out.println(bankBookDTO.getBookNum());
+
 		BankBookDAO bankBookDAO = new BankBookDAO();
 		bankBookDTO = bankBookDAO.getDetail(bankBookDTO);
-		//ModelAndView mv = new ModelAndView();
-		
+		// ModelAndView mv = new ModelAndView();
+
 		model.addAttribute("dto", bankBookDTO);
 
-		//mv.setViewName("bankbook/update");
-		//mv.addObject("dto", bankBookDTO);
-		
-		//return mv;
+		// mv.setViewName("bankbook/update");
+		// mv.addObject("dto", bankBookDTO);
+
+		// return mv;
 	}
-	
-	@RequestMapping(value = "update", method = RequestMethod.POST)
+
+	@RequestMapping(value = "update.gm", method = RequestMethod.POST)
 	public String update(BankBookDTO bankBookDTO) throws Exception {
 		System.out.println("업데이트 Post 실행");
-		
+
 		BankBookDAO bankBookDAO = new BankBookDAO();
-		//BankBookDTO bankBookDTO = new BankBookDTO();
-		
+		// BankBookDTO bankBookDTO = new BankBookDTO();
+
 		int result = bankBookDAO.setUpdate(bankBookDTO);
-		
-		
-		
+
 		System.out.println(result == 1);
-		
-		return "redirect:./detail?booknum=" + bankBookDTO.getBooknum();
+
+		return "redirect:./detail.gm?bookNum=" + bankBookDTO.getBookNum();
 
 	}
-	
-	@RequestMapping(value = "delete", method = RequestMethod.GET)
+
+	@RequestMapping(value = "delete.gm", method = RequestMethod.GET)
 	public ModelAndView Delete(BankBookDTO bankBookDTO, Model model) throws Exception {
 		System.out.println("딜리트 Get 실행");
-		
+
 		BankBookDAO bankBookDAO = new BankBookDAO();
 		ModelAndView mv = new ModelAndView();
 
 		int result = bankBookDAO.setDelete(bankBookDTO);
-		
-		mv.setViewName("redirect:./list");
-		
+
+		mv.setViewName("redirect:./list.gm");
+
 		System.out.println(result == 1);
-		
+
 		return mv;
-		
+
 	}
 
 }
