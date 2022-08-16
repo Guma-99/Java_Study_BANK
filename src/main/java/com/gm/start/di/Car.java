@@ -20,6 +20,7 @@ public class Car {
 //	public Car() {
 //		this.engine = new Engine();
 //	}
+	@Autowired
 	public Car(Engine engine, LeftWheel leftWheel, RightWheel rightWheel) {
 		this.engine = engine;
 		this.leftWheel = leftWheel;

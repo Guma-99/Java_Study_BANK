@@ -26,13 +26,12 @@ body {
 			<a href="./member/join.gm">Join</a>
 		</c:if>
 		<c:if test="${not empty sessionScope.member}">
-			<h3>${sessionScope.member.name}님환영합니다.</h3>
+			<h3>${sessionScope.member.name}님 환영합니다.</h3>
 			<a href="./member/logout.gm">logout</a>
 			<a href="#">Mypage</a>
 		</c:if>
-		<a href="./bankbook/list.gm">List</a> <a href="./bankbook/detail.gm">Detail</a>
-		<a href="./bankbook/add.gm">add</a> <a href="./member/search.gm">search</a>
-		<a href="./bankbook/update.gm">update</a>
+		<a href="./bankbook/list.gm">List</a>
+		<a href="./bankbook/add.gm">Add</a> <a href="./member/search.gm">Search</a>
 	</div>
 
 	<%--
