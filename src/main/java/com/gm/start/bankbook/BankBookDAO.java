@@ -4,9 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-
+import org.springframework.stereotype.Repository;
 import com.gm.start.util.DBConnector;
 
+@Repository
 public class BankBookDAO implements BookDAO {
 
 	@Override
