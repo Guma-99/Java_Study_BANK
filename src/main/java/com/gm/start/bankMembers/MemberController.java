@@ -1,6 +1,6 @@
 package com.gm.start.bankMembers;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -113,7 +113,7 @@ public class MemberController {
 	@RequestMapping(value = "search.gm", method = RequestMethod.POST)
 	public ModelAndView getSearchByID(String search) throws Exception {
 		System.out.println("써치 Post 실행");
-		ArrayList<BankMembersDTO> ar = bankMembersService.getSearchByID(search);
+		List<BankMembersDTO> ar = bankMembersService.getSearchByID(search);
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("member/list");
