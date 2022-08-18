@@ -1,11 +1,11 @@
-<%@page import="com.gm.start.bankBook.BankBookDAO"%>
-<%@page import="com.gm.start.bankBook.BankBookDTO"%>
+<%@page import="com.gm.start.bankbook.BankBookDAO"%>
+<%@page import="com.gm.start.bankbook.BankBookDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 //BankBookDTO bankBookDTO = (BankBookDTO) request.getAttribute("dto");
-BankBookDTO bankBookDTO = new BankBookDTO();
-BankBookDAO bankBookDAO = new BankBookDAO();
+//BankBookDTO bankBookDTO = new BankBookDTO();
+//BankBookDAO bankBookDAO = new BankBookDAO();
 %>
 <!DOCTYPE html>
 <html>

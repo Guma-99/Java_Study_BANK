@@ -1,4 +1,4 @@
-package com.gm.start.bankBook;
+package com.gm.start.bankbook;
 
 import java.util.ArrayList;
 
