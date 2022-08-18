@@ -24,12 +24,12 @@
 			<th>이자율</th>
 			<th>판매여부</th>
 		</tr>
-		<tr>
+<%-- 		<tr>
 			<td><%=bankBookDTO.getBookNum()%></td>
 			<td><%=bankBookDTO.getBookName()%></td>
 			<td><%=bankBookDTO.getBookRate()%></td>
 			<td><%=bankBookDTO.getBookSale()%></td>
-		</tr>
+		</tr> --%>
 	</table>
 	<br>
 	<hr>

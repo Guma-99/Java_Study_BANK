@@ -1,6 +1,7 @@
 package com.gm.start.test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.gm.start.bankMembers.BankMembersDAO;
 import com.gm.start.bankMembers.BankMembersDTO;
@@ -18,7 +19,7 @@ public class BankMembersTest {
 		try {
 //			int result =bankMembersDAO.setJoin(bankMembersDTO);
 //			System.out.println(result == 1);
-			ArrayList<BankMembersDTO> ar = bankMembersDAO.getSearchByID("Z");
+			List<BankMembersDTO> ar = bankMembersDAO.getSearchByID("Z");
 			
 			System.out.println(ar.size() > 0);
 

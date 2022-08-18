@@ -7,15 +7,15 @@
 <mapper namespace="com.gm.start.bankMembers.BankMembersDAO">
 
 	<!-- id는 DAO의 메서드명과 동일하게 -->
-	<select id="getLogin" parameterType="com.gm.start.bankMembers.BankMembersDTO" resultType="com.gm.start.bankMembers.BankMembersDTO">
+	<select id="getLogin" parameterType="BankMembersDTO" resultType="BankMembersDTO">
 		SELECT USERNAME, NAME FROM BANKMEMBERS WHERE USERNAME = #{userName} AND PASSWORD = #{passWord}
 	</select>
 	
-	<select id="getSearchByID" parameterType="java.lang.String" resultType="com.gm.start.bankMembers.BankMembersDTO">
+	<select id="getSearchByID" parameterType="String" resultType="com.gm.start.bankMembers.BankMembersDTO">
 		SELECT * FROM BANKMEMBERS WHERE USERNAME LIKE '%'||#{search}||'%' order by username ASC
 	</select>
 	
-	<insert id="setJoin" parameterType="com.gm.start.bankMembers.BankMembersDTO">
+	<insert id="setJoin" parameterType="BankMembersDTO">
 		INSERT INTO BANKMEMBERS VALUES(#{userName},#{passWord},#{name},#{email},#{phone})
 	</insert>
 </mapper>

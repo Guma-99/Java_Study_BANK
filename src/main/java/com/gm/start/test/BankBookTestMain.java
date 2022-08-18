@@ -1,7 +1,7 @@
 package com.gm.start.test;
 
-import com.gm.start.bankBook.BankBookDAO;
-import com.gm.start.bankBook.BankBookDTO;
+import com.gm.start.bankbook.BankBookDAO;
+import com.gm.start.bankbook.BankBookDTO;
 
 public class BankBookTestMain {
 
